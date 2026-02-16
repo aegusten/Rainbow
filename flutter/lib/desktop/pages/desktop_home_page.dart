@@ -59,7 +59,7 @@ class _DesktopHomePageState extends State<DesktopHomePage>
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    final isIncomingOnly = bind.isIncomingOnly();
+    final isIncomingOnly = bind.isIncomingOnly() || _isUserUiMode();
     return _buildBlock(
         child: Row(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -77,11 +77,12 @@ class _DesktopHomePageState extends State<DesktopHomePage>
   }
 
   Widget buildLeftPane(BuildContext context) {
-    final isIncomingOnly = bind.isIncomingOnly();
+    final isIncomingOnly = bind.isIncomingOnly() || _isUserUiMode();
+    final isUserUiMode = _isUserUiMode();
     final isOutgoingOnly = bind.isOutgoingOnly();
     final children = <Widget>[
-      if (!isOutgoingOnly) buildPresetPasswordWarning(),
-      if (bind.isCustomClient())
+      if (!isOutgoingOnly && !isUserUiMode) buildPresetPasswordWarning(),
+      if (bind.isCustomClient() && !isUserUiMode)
         Align(
           alignment: Alignment.center,
           child: loadPowered(context),
@@ -93,25 +94,26 @@ class _DesktopHomePageState extends State<DesktopHomePage>
       buildTip(context),
       if (!isOutgoingOnly) buildIDBoard(context),
       if (!isOutgoingOnly) buildPasswordBoard(context),
-      FutureBuilder<Widget>(
-        future: Future.value(
-            Obx(() => buildHelpCards(stateGlobal.updateUrl.value))),
-        builder: (_, data) {
-          if (data.hasData) {
-            if (isIncomingOnly) {
-              if (isInHomePage()) {
-                Future.delayed(Duration(milliseconds: 300), () {
-                  _updateWindowSize();
-                });
+      if (!isUserUiMode)
+        FutureBuilder<Widget>(
+          future: Future.value(
+              Obx(() => buildHelpCards(stateGlobal.updateUrl.value))),
+          builder: (_, data) {
+            if (data.hasData) {
+              if (isIncomingOnly) {
+                if (isInHomePage()) {
+                  Future.delayed(Duration(milliseconds: 300), () {
+                    _updateWindowSize();
+                  });
+                }
               }
+              return data.data!;
+            } else {
+              return const Offstage();
             }
-            return data.data!;
-          } else {
-            return const Offstage();
-          }
-        },
-      ),
-      buildPluginEntry(),
+          },
+        ),
+      if (!isUserUiMode) buildPluginEntry(),
     ];
     if (isIncomingOnly) {
       children.addAll([
@@ -147,7 +149,7 @@ class _DesktopHomePageState extends State<DesktopHomePage>
                 Expanded(child: Container())
               ],
             ),
-            if (isOutgoingOnly)
+            if (isOutgoingOnly && !isUserUiMode)
               Positioned(
                 bottom: 6,
                 left: 12,
@@ -185,6 +187,10 @@ class _DesktopHomePageState extends State<DesktopHomePage>
       color: Theme.of(context).scaffoldBackgroundColor,
       child: ConnectionPage(),
     );
+  }
+
+  bool _isUserUiMode() {
+    return bind.mainGetLocalOption(key: kOptionUiMode) == 'user';
   }
 
   buildIDBoard(BuildContext context) {

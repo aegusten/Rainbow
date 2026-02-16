@@ -416,6 +416,7 @@ class _GeneralState extends State<_General> {
       children: [
         if (!isWeb) service(),
         theme(),
+        if (!isWeb) uiMode(),
         if (!isWeb) hwcodec(),
         if (!isWeb) audio(context),
         if (!isWeb) record(context),
@@ -449,6 +450,30 @@ class _GeneralState extends State<_General> {
           groupValue: current,
           label: 'Follow System',
           onChanged: isOptFixed ? null : onChanged),
+    ]);
+  }
+
+  Widget uiMode() {
+    final currentMode = bind.mainGetLocalOption(key: kOptionUiMode) == 'user'
+        ? 'user'
+        : 'admin';
+    onChanged(String value) async {
+      await bind.mainSetLocalOption(key: kOptionUiMode, value: value);
+      await reloadAllWindows();
+      setState(() {});
+    }
+
+    return _Card(title: 'Interface mode', children: [
+      _Radio<String>(context,
+          value: 'admin',
+          groupValue: currentMode,
+          label: 'Admin UI',
+          onChanged: onChanged),
+      _Radio<String>(context,
+          value: 'user',
+          groupValue: currentMode,
+          label: 'User UI (desktop display only)',
+          onChanged: onChanged),
     ]);
   }
 
