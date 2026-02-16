@@ -4,7 +4,7 @@ version = "1.4.5"
 authors = ["rustdesk <info@rustdesk.com>"]
 edition = "2021"
 build= "build.rs"
-description = "Rainbow Remote Desktop"
+description = "Rainbow Remote Access"
 default-run = "rustdesk"
 rust-version = "1.75"
 
@@ -215,7 +215,7 @@ libxdo-sys = { path = "libs/libxdo-sys-stub" }
 [package.metadata.winres]
 LegalCopyright = "Copyright © 2025 Purslane Ltd. All rights reserved."
 ProductName = "Rainbow"
-FileDescription = "Rainbow Remote Desktop"
+FileDescription = "Rainbow Remote Access"
 OriginalFilename = "rainbow.exe"
 
 [target.'cfg(target_os="windows")'.build-dependencies]

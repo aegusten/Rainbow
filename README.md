@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="res/logo-header.svg" alt="Rainbow - Your remote desktop"><br>
+  <img src="res/logo-header.svg" alt="Rainbow - Remote access"><br>
   <a href="#raw-steps-to-build">Build</a> •
   <a href="#how-to-build-with-docker">Docker</a> •
   <a href="#file-structure">Structure</a> •
@@ -17,7 +17,7 @@ Chat with us: [Discord](https://discord.gg/nDceKgxnkV) | [Twitter](https://twitt
 
 [![RustDesk Server Pro](https://img.shields.io/badge/RustDesk%20Server%20Pro-Advanced%20Features-blue)](https://rustdesk.com/pricing.html)
 
-Rainbow is a Rust-based remote desktop solution. This fork currently targets Windows first and keeps the core remote-control path (screen, mouse, keyboard, direct/relay networking).
+Rainbow is a Rust-based remote access solution. This fork currently targets Windows first and keeps the core remote-control path (screen, mouse, keyboard, direct/relay networking).
 
 ## Fork scope (Rainbow)
 

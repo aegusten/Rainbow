@@ -2429,7 +2429,7 @@ List<String>? urlLinkToCmdArgs(Uri uri) {
       connect(Get.context!, id,
           isTerminal: true, forceRelay: forceRelay, password: password);
     } else {
-      // Default to remote desktop for '--connect', '--play', or direct connection
+      // Default to remote session for '--connect', '--play', or direct connection
       connect(Get.context!, id, forceRelay: forceRelay, password: password);
     }
     return null;
@@ -2968,7 +2968,7 @@ String getWindowName({WindowType? overrideType}) {
     case WindowType.PortForward:
       return "Port Forward - $name";
     case WindowType.RemoteDesktop:
-      return "Remote Desktop - $name";
+      return "Remote Session - $name";
     default:
       break;
   }
