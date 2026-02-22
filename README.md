@@ -6,8 +6,8 @@ Owner: **Yan**
 
 Rainbow is a self-hosted remote access app for desktop control.
 
-This codebase is based on **RustDesk**.  
-Core networking and remote-control functionality comes from RustDesk, with Rainbow-specific branding and UI changes.
+This codebase powers **Rainbow** remote access software.
+Core networking and remote-control functionality is implemented in Rust with Rainbow-specific branding and UI changes.
 
 ## What this build is for
 
@@ -23,7 +23,7 @@ Core networking and remote-control functionality comes from RustDesk, with Rainb
 - Rust toolchain (`rustup`, `cargo`)
 - Flutter SDK (for desktop UI)
 - Visual Studio C++ Build Tools
-- `vcpkg` dependencies (required by RustDesk core)
+- `vcpkg` dependencies (required by the native core)
 
 ## Build and Run (Windows)
 
@@ -87,5 +87,5 @@ For simple internal deployment:
 
 ## Notes
 
-- This project keeps RustDesk core design and protocol behavior.
+- This project keeps the original core design and protocol behavior.
 - If you change server endpoints, configure your ID/Relay server in settings before testing.

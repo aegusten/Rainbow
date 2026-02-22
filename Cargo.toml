@@ -1,15 +1,15 @@
 [package]
-name = "rustdesk"
+name = "rainbow"
 version = "1.4.5"
-authors = ["rustdesk <info@rustdesk.com>"]
+authors = ["Rainbow <info@rainbow-remote.com>"]
 edition = "2021"
 build= "build.rs"
 description = "Rainbow Remote Access"
-default-run = "rustdesk"
+default-run = "rainbow"
 rust-version = "1.75"
 
 [lib]
-name = "librustdesk"
+name = "librainbow"
 crate-type = ["cdylib", "staticlib", "rlib"]
 
 [[bin]]

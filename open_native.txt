@@ -1,0 +1,5 @@
+
+thread 'main' (34144) panicked at C:\Users\Yan\.cargo\git\checkouts\rust-sciter-9d95e9099df4ba27\5322f3a\src\lib.rs:221:21:
+error: 'sciter.dll' was not found neither in PATH nor near the current executable.
+  Please verify that Sciter SDK is installed and its binaries (from SDK/bin/64) are available in PATH.
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace

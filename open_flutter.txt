@@ -1,0 +1,22 @@
+Graphics adapter: NVIDIA GeForce RTX 5070
+flutter: launch args: []
+flutter: initializing FFI main
+flutter: _appType:main,info1-id:DESKTOP-DJ5T28I,info2-name:DESKTOP-DJ5T28I,dir:C:\Users\Yan\OneDrive\Documents
+flutter: _globalFFI init
+flutter: registerEventHandler callback_query_onlines address book peer
+flutter: registerEventHandler load_address_book_peers address book peer
+flutter: registerEventHandler callback_query_onlines group peer
+flutter: registerEventHandler load_group_peers group peer
+flutter: registerEventHandler callback_query_onlines recent peer
+flutter: registerEventHandler load_recent_peers recent peer
+flutter: registerEventHandler callback_query_onlines fav peer
+flutter: registerEventHandler load_fav_peers fav peer
+flutter: registerEventHandler callback_query_onlines discovered peer
+flutter: registerEventHandler load_lan_peers discovered peer
+flutter: _globalFFI init end
+flutter: registerEventHandler native_ui native_ui
+flutter: registerEventHandler check_software_update_finish check_software_update_finish
+flutter: restore lpos: 977.0/908.0, offset:639.0/324.0, isMaximized: false, isFullscreen: false
+flutter: initialLink: 
+flutter: handled by uni links: false
+flutter: [MultiWindowHandler] active window changed: {0}
